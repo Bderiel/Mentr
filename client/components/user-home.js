@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import DatePicker from 'react-date-picker';
-// import DatePicker from 'react-date-picker/dist/entry.nostyle';
 import { Skillz } from './';
 
 /**
@@ -20,6 +19,7 @@ export class UserHome extends Component {
       mentorFilter:[],
     }
     this.handleChange = this.handleChange.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   addEvent() {
@@ -41,8 +41,10 @@ export class UserHome extends Component {
       })
   }
 
-  onChange(date){
+  onChange(date,name){
+    console.log(date)
     let newDate = date.toString().slice(0, 16)
+    console.log(newDate,'new')
     this.setState({
       date:newDate
     })
@@ -61,18 +63,18 @@ export class UserHome extends Component {
   }
 
   render() {
+    console.log(this.state.date, 'state')
     // const {email,appointment} = this.props
-    const { mentors, mentorFilter } = this.state;
+    const { mentors, mentorFilter, date} = this.state;
     return (
       <div className="container-s">
-        {/* <h3>Welcome, {(this.state && this.state.email.split('@'))[0]}</h3> */}
         <div className="flex" >
           <div id="appointments">
             <h4>UPCOMING APPOINTMENTS</h4>
             <div id="appointment-title-button">
               <DatePicker
-                onChange={this.onChange.bind(this)}
-                value={this.state.date}
+                onChange={this.onChange}
+                value={''}
               />
               <button id="add-button" onClick={this.addEvent.bind(this)}>ADD</button>
             </div>
@@ -90,7 +92,7 @@ export class UserHome extends Component {
             <input onChange={this.handleChange} id="search" />
             {mentorFilter.length ? mentorFilter.map(mentor => {
               return (
-                <Skillz key={mentor.id} name={mentor.email} image={mentor.image} skills={mentor.skills} />
+                <Skillz date={date} dateChange={this.onChange} key={mentor.id} name={mentor.email} image={mentor.image} skills={mentor.skills} />
               )
             }) : null
             }

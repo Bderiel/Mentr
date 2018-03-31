@@ -378,5 +378,9 @@ nav a {
 }
 
 .single-skill{
-    border: 1px solid black;
+    color:goldenrod;
+}
+
+.z{
+    z-index: 1;
 }
