@@ -322,3 +322,7 @@ nav a {
 .skillz{
   margin-left:20px;
 }
+
+.single-skill{
+    border: 1px solid black;
+}

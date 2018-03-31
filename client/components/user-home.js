@@ -43,11 +43,13 @@ export class UserHome extends Component {
   }
 
   handleChange(evt){
-    const filter = evt.target.value;
+    const filter = evt.target.value.toLowerCase();
     const { mentors } = this.state;
     this.setState({
       mentorFilter: mentors.filter(mentor => {
-        return(mentor.skills.includes(filter))
+        return (mentor.skills.filter(el=>{
+          return(el.toLowerCase().match(filter))
+        })).length
       })
     })
   }
