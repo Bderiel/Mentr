@@ -17,7 +17,7 @@ router.post('/event', (req, res, next) => {
   User.findById(req.session.passport.user)
   .then(user => {
     user.update({
-      appointment:[...user.appointment, 'hi']
+      appointment:[...user.appointment, req.body.date]
     })
     .then(()=>{
       res.send("UPDATED")
