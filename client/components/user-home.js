@@ -1,18 +1,53 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import axios from 'axios'
 
 /**
  * COMPONENT
  */
-export const UserHome = (props) => {
-  const {email} = props
+export class UserHome extends Component{
+  constructor(props){
+    super(props)
+    this.state={
+      email:props.email,
+      appointment:props.appointment
+    }
+  }
+  
+  addEvent(){
+    axios.post('api/users/event')
+    .then(()=>{
+      this.setState({
+        appointment:[...this.state.appointment, 'hello']
+      })
+    })
+  }
+  
+  render(){
+    // const {email,appointment} = this.props
+    return(
+      <div>
+        <h3>Welcome, {(this.state && this.state.email.split('@'))[0]}</h3>
+        <div id="appointments">
+          <div id="appointment-title-button">
+            <h4>UPCOMING APPOINTMENTS</h4>
+            <button id="add-button" onClick={this.addEvent.bind(this)}>ADD</button>
+          </div>
+          <ul id="upcoming">
+            {
+              this.state && this.state.appointment.map((date, index) => {
+                return (
+                  <li key={index} className="appointment-date">{date}</li>
+                )
+              })
+            }
+          </ul>
+        </div>
+      </div>
+    )
+}
 
-  return (
-    <div>
-      <h3>Welcome, {email}</h3>
-    </div>
-  )
 }
 
 /**
@@ -20,7 +55,8 @@ export const UserHome = (props) => {
  */
 const mapState = (state) => {
   return {
-    email: state.user.email
+    email: state.user.email,
+    appointment:state.user.appointment
   }
 }
 

@@ -19,3 +19,26 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+#appointments {
+  border:2px black solid;
+  border-radius: 20px;
+  padding: 15px;
+  display: inline-block;
+}
+
+#appointment-title-button {
+  display:flex;
+  flex-direction: row;
+}
+
+#upcoming {
+  list-style-type: none;
+}
+
+.appointment-date {
+  margin:20px;
+  border: 2px solid black;
+  border-radius:20px; 
+  padding: 15px;
+}
