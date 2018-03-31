@@ -380,3 +380,10 @@ nav a {
 .single-skill{
     border: 1px solid black;
 }
+
+.video-feed{
+    border:2px black solid;
+    border-radius: 20px;
+    padding: 15px;
+    display: inline-block;
+}

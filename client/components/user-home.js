@@ -5,6 +5,8 @@ import axios from 'axios'
 import DatePicker from 'react-date-picker';
 // import DatePicker from 'react-date-picker/dist/entry.nostyle';
 import { Skillz } from './';
+import VideoFeed from './VideoFeed'
+
 
 /**
  * COMPONENT
@@ -96,6 +98,7 @@ export class UserHome extends Component {
             }
           </div>
         </div>
+        <VideoFeed/>
       </div>
     )
   }
