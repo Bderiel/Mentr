@@ -11,6 +11,8 @@
  */
 const db = require('../server/db')
 const {User} = require('../server/db/models')
+const toonavatar = require('cartoon-avatar');
+
 
 async function seed () {
   await db.sync({force: true})
@@ -19,8 +21,14 @@ async function seed () {
   // executed until that promise resolves!
 
   const users = await Promise.all([
-    User.create({email: 'Cody@email.com', password: '123', appointment:['4/1/2018', '4/14/2018', '4/21/2018']}),
-    User.create({email: 'Murphy@email.com', password: '123', appointment:['6/1/2018', '6/14/2018', '6/21/2018']})
+    User.create({email: 'Cody@email.com', password: '123', appointment:['April 1, 2018', 'April 14, 2018', 'April 21, 2018']}),
+    User.create({email: 'Murphy@email.com', password: '123', appointment:['June 1, 2018', 'June 14, 2018', 'June 21, 2018']}),
+    User.create({ email: 'Kanye@email.com', password: '123', appointment: ['June 1, 2018', 'June 14, 2018', 'June 21, 2018'], skills: ['Programming', 'Web Development', 'Rapping', 'Beats'], mentor: true, image: toonavatar.generate_avatar({ "gender": "male", "id": 5 }) }),
+    User.create({ email: 'NadimTheBeast@email.com', password: '123', appointment: ['June 1, 2018', 'June 14, 2018', 'June 21, 2018'], skills: ['Programming', 'Web Development', 'Entrepreneurship'], mentor: true, image: toonavatar.generate_avatar({ "gender": "male", "id": 4 }) }),
+    User.create({ email: 'Tony@email.com', password: '123', appointment: ['June 1, 2018', 'June 14, 2018', 'June 21, 2018'], skills: ['Programming', 'Web Development', 'Finance', 'Design'], mentor: true, image: toonavatar.generate_avatar({ "gender": "male", "id": 7 }) }),
+    User.create({ email: 'Annie@email.com', password: '123', appointment: ['June 1, 2018', 'June 14, 2018', 'June 21, 2018'], skills: ['Programming', 'Web Development', 'Vue'], mentor: true, image: toonavatar.generate_avatar({ "gender": "female", "id": 5 }) }),
+    User.create({ email: 'Karen@email.com', password: '123', appointment: ['June 1, 2018', 'June 14, 2018', 'June 21, 2018'], skills: ['Programming', 'Web Development', 'Entrepreneurship'], mentor: true, image: toonavatar.generate_avatar({ "gender": "female", "id": 6 }) }),
+    User.create({ email: 'Grace@email.com', password: '123', appointment: ['June 1, 2018', 'June 14, 2018', 'June 21, 2018'], skills: ['Programming', 'Math', 'Finance'], mentor: true, image: toonavatar.generate_avatar({ "gender": "female", "id": 7 }) })
   ])
   // Wowzers! We can even `await` on the right-hand side of the assignment operator
   // and store the result that the promise resolves to in a variable! This is nice!

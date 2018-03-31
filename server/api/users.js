@@ -24,3 +24,14 @@ router.post('/event', (req, res, next) => {
     })
   })
 })
+
+router.get('/mentor',(req,res,next)=>{
+  User.findAll({
+    where:{
+      mentor:true,
+    }
+  })
+  .then(foundUsers=>{
+    res.json(foundUsers);
+  })
+})
