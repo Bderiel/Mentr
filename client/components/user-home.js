@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import DatePicker from 'react-date-picker';
+// import DatePicker from 'react-date-picker/dist/entry.nostyle';
 
 /**
  * COMPONENT
@@ -11,7 +13,8 @@ export class UserHome extends Component{
     super(props)
     this.state={
       email:props.email,
-      appointment:props.appointment
+      appointment:props.appointment,
+      date:''
     }
   }
   
@@ -19,7 +22,8 @@ export class UserHome extends Component{
     axios.post('api/users/event')
     .then(()=>{
       this.setState({
-        appointment:[...this.state.appointment, 'hello']
+        appointment:[...this.state.appointment, 'hello'],
+        date:new Date()
       })
     })
   }
@@ -30,8 +34,11 @@ export class UserHome extends Component{
       <div>
         <h3>Welcome, {(this.state && this.state.email.split('@'))[0]}</h3>
         <div id="appointments">
+          <h4>UPCOMING APPOINTMENTS</h4>
           <div id="appointment-title-button">
-            <h4>UPCOMING APPOINTMENTS</h4>
+            <DatePicker
+              value={this.state.date}
+            />
             <button id="add-button" onClick={this.addEvent.bind(this)}>ADD</button>
           </div>
           <ul id="upcoming">

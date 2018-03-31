@@ -35,6 +35,8 @@
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.5.8",
     "react": "^16.0.0",
+    "react-date-picker": "^6.9.1",
+    "react-datepicker": "^1.4.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.2",
     "react-router-dom": "^4.1.1",

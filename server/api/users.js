@@ -19,5 +19,8 @@ router.post('/event', (req, res, next) => {
     user.update({
       appointment:[...user.appointment, 'hi']
     })
+    .then(()=>{
+      res.send("UPDATED")
+    })
   })
 })
