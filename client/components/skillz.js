@@ -8,7 +8,7 @@ export default class Skillz extends Component{
   render(){
     const { name, skills,image } = this.props;
     return (
-        <article className="search-result row">
+        <article className="search-result row" id="result">
           <div className="col-xs-12 col-sm-12 col-md-3">
             <a href="#" title="Lorem ipsum" className="thumbnail"><img src={image} alt="Lorem ipsum" /></a>
           </div>

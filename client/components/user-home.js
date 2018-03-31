@@ -23,11 +23,10 @@ export class UserHome extends Component {
   }
 
   addEvent() {
-    axios.post('/api/users/event')
+    axios.post('/api/users/event', this.state.date)
       .then(() => {
         this.setState({
-          appointment: [...this.state.appointment, 'hello'],
-          date: new Date()
+          appointment: [...this.state.appointment, this.state.date],
         })
       })
   }
@@ -40,6 +39,13 @@ export class UserHome extends Component {
           mentors
         })
       })
+  }
+
+  onChange(date){
+    let newDate = date.toString().slice(0, 16)
+    this.setState({
+      date:newDate
+    })
   }
 
   handleChange(evt){
@@ -59,12 +65,13 @@ export class UserHome extends Component {
     const { mentors, mentorFilter } = this.state;
     return (
       <div className="container-s">
-        <h3>Welcome, {(this.state && this.state.email.split('@'))[0]}</h3>
+        {/* <h3>Welcome, {(this.state && this.state.email.split('@'))[0]}</h3> */}
         <div className="flex" >
           <div id="appointments">
             <h4>UPCOMING APPOINTMENTS</h4>
             <div id="appointment-title-button">
               <DatePicker
+                onChange={this.onChange.bind(this)}
                 value={this.state.date}
               />
               <button id="add-button" onClick={this.addEvent.bind(this)}>ADD</button>
@@ -80,7 +87,7 @@ export class UserHome extends Component {
             </ul>
           </div>
           <div className="skillz">
-            <input onChange={this.handleChange}/>
+            <input onChange={this.handleChange} id="search" />
             {mentorFilter.length ? mentorFilter.map(mentor => {
               return (
                 <Skillz key={mentor.id} name={mentor.email} image={mentor.image} skills={mentor.skills} />
