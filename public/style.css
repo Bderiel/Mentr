@@ -1,5 +1,40 @@
 body {
   font-family: sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=37c91c8e3f63462e0739c676dfe8fee8&auto=format&fit=crop&w=1050&q=80');
+  background-size: 100%;
+}
+
+#title {
+  margin:5px;
+  font-size: 72px;
+  font-family: 'Kalam', cursive;
+}
+
+#navigation{
+  display: flex;
+  flex-direction: row;
+  background-color: #2196F3;
+  box-shadow: 0px 0px 8px 2px #000000;
+}
+
+#Mentr {
+  display: flex;
+  flex-direction: row;
+  margin:10px;
+  font-size: 52px;
+  font-family: 'Kalam', cursive;
+}
+
+#hat {
+  width: 100px;
+  height: 100px;
+  filter: brightness(50%);
+  margin:1px;
+}
+
+#nav-links {
+  /* justify-content: flex-end; */
+  margin-left: 60%;
 }
 
 a {
@@ -99,7 +134,7 @@ nav a {
 .btn.btn-signin {
     /*background-color: #4d90fe; */
     background-color: rgb(104, 145, 162);
-    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33)); */
     padding: 0px;
     font-weight: 700;
     font-size: 14px;
@@ -145,9 +180,13 @@ nav a {
 
 #appointments {
   border:2px black solid;
+  background-color: white;
   border-radius: 20px;
   padding: 15px;
   display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  margin:15px;
+  box-shadow: 0px 0px 4px 1px #000000;
 }
 
 #appointment-title-button {
@@ -160,10 +199,10 @@ nav a {
 }
 
 .appointment-date {
-  margin:20px;
+  margin:10px;
   border: 2px solid black;
-  border-radius:20px; 
-  padding: 15px;
+  border-radius:15px; 
+  padding: 10px;
 }
 
 .btn {
@@ -288,5 +327,5 @@ nav a {
 }
 
 .login-background{
-  background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=37c91c8e3f63462e0739c676dfe8fee8&auto=format&fit=crop&w=1050&q=80')
+  /* background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=37c91c8e3f63462e0739c676dfe8fee8&auto=format&fit=crop&w=1050&q=80') */
 }

@@ -14,17 +14,24 @@ export class UserHome extends Component{
     this.state={
       email:props.email,
       appointment:props.appointment,
-      date:''
+      date: new Date()
     }
   }
   
   addEvent(){
-    axios.post('api/users/event')
+    console.log("STATE DATE", this.state.date)
+    axios.post('api/users/event', {date:this.state.date})
     .then(()=>{
       this.setState({
-        appointment:[...this.state.appointment, 'hello'],
-        date:new Date()
+        appointment:[...this.state.appointment, this.state.date]
       })
+    })
+  }
+
+  onChange(date){
+    let newDate = date.toString().slice(0,16)
+    this.setState({
+      date:newDate
     })
   }
   
@@ -32,18 +39,19 @@ export class UserHome extends Component{
     // const {email,appointment} = this.props
     return(
       <div>
-        <h3>Welcome, {(this.state && this.state.email.split('@'))[0]}</h3>
+        {/* <h3>Welcome, {(this.state.email && this.state.email.split('@'))[0]}</h3> */}
         <div id="appointments">
           <h4>UPCOMING APPOINTMENTS</h4>
           <div id="appointment-title-button">
             <DatePicker
+              onChange={this.onChange.bind(this)}
               value={this.state.date}
             />
             <button id="add-button" onClick={this.addEvent.bind(this)}>ADD</button>
           </div>
           <ul id="upcoming">
             {
-              this.state && this.state.appointment.map((date, index) => {
+              this.state.appointment.length && this.state.appointment.map((date, index) => {
                 return (
                   <li key={index} className="appointment-date">{date}</li>
                 )
