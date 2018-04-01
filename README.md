@@ -1,5 +1,5 @@
 # Mentr
-### Won Most Complete and Functional project
+Won Most Complete and Functional project at WDF/TTP Hackathon
 
 ## Objective
 One to one mentorship platform where users can find mentors by skills and schedule appointments with them.
