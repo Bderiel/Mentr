@@ -19,8 +19,9 @@ One to one mentorship platform where users can find mentors by skills and schedu
 Functional and in progress
 
 ## Pictures!
-![Hello](./public/VideoChat.png?raw=true "Title")
 ![Hello](./public/Mentors.png?raw=true "Title")
 ![Hello](./public/Login.png?raw=true "Title")
 ![Hello](./public/Appointments.png?raw=true "Title")
+![Hello](./public/VideoChat.png?raw=true "Title")
+
 
