@@ -19,7 +19,8 @@ One to one mentorship platform where users can find mentors by skills and schedu
 Functional and in progress
 
 ## Pictures!
-<div style = "display:flex" >
+<div>
+  <p align:'center'>login page</p>
  <img src = './public/Login.png'/>
  <img src = './public/Mentors.png'/>
  <img src = './public/Appointments.png'/>
