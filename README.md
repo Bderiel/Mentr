@@ -19,12 +19,10 @@ One to one mentorship platform where users can find mentors by skills and schedu
 Functional and in progress
 
 ## Pictures!
-<p align = "center" >Our login page
+<div align = "center" >Our login page
  <img src = './public/Login.png'/>
-![Hello](./public/Login.png?raw=true "Title")
-Find mentors
-![Hello](./public/Mentors.png?raw=true "Title")
-![Hello](./public/Appointments.png?raw=true "Title")
-![Hello](./public/VideoChat.png?raw=true "Title")
-</p>
+ <img src = './public/Mentors.png'/>
+ <img src = './public/Appointments.png'/>
+ <img src = './public/VideoChat.png'/>
+</div>
 
